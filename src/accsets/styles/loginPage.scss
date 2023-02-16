@@ -1,0 +1,116 @@
+.wrapper-login-page {
+  width: 100vw;
+  height: 100vh;
+  background: url("https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+    no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  &__heading {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+.form {
+  width: 400px;
+  padding: 20px;
+  height: auto;
+  background: rgb(26, 135, 87);
+  background: linear-gradient(
+    90deg,
+    rgba(26, 135, 87, 0.24422268907563027) 31%,
+    rgba(45, 123, 139, 1) 100%
+  );
+  border-radius: 20px;
+
+  &__heading {
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #fff;
+    margin-top: 40px;
+    text-align: center;
+  }
+  &__field {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+
+    &__lable {
+      color: #fff;
+    }
+    &__input {
+      border: none;
+      background: rgba(213, 224, 222, 0.8);
+      padding: 20px;
+      border-radius: 5px;
+      outline: none;
+      color: #111;
+      font-size: 18px;
+    }
+  }
+  &__submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: 100px;
+      height: 40px;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: linear-gradient(
+        90deg,
+        rgba(26, 135, 87, 0.9360994397759104) 31%,
+        rgba(45, 123, 139, 1) 100%
+      );
+      color: #fff;
+    }
+  }
+  &__btn {
+    span {
+      color: #fff;
+    }
+    margin-top: 50px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    &__shared {
+      background: #fff;
+      width: 250px;
+      text-align: center;
+      padding: 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      &--google {
+        background: rgb(26, 135, 87);
+        background: linear-gradient(
+          90deg,
+          rgba(26, 135, 87, 1) 31%,
+          rgba(45, 123, 139, 1) 100%
+        );
+        color: #fff;
+      }
+      &--facebook {
+        background: #3254a8;
+        color: #fff;
+      }
+    }
+  }
+}
