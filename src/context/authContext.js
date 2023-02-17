@@ -21,11 +21,8 @@ const AuthContextProvider = ({ children }) => {
     }
   };
   const handleSignWithFacebook = async () => {
-    const provider = new FacebookAuthProvider();
-    provider.setCustomParameters({
-      display: "popup",
-    });
     try {
+      const provider = new FacebookAuthProvider();
       await signInWithPopup(auth, provider);
     } catch (error) {
       console.log("error", error);

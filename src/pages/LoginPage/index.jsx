@@ -17,9 +17,9 @@ const LoginPage = () => {
   }, [user]);
   return (
     <div className="wrapper-login-page">
-      <h3 className="wrapper-login-page__heading" onClick={() => navigate("/")}>
+      {/* <h3 className="wrapper-login-page__heading" onClick={() => navigate("/")}>
         Barefoot Store
-      </h3>
+      </h3> */}
       <form className="form">
         <h3 className="form__heading">Login</h3>
         <div className="form__field">

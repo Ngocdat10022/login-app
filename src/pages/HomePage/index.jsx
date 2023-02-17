@@ -14,9 +14,15 @@ const HomePage = () => {
             : "Barefoot Store"
         } `}</h3>
         {user ? (
-          <button className="wrapper-home__header__btn" onClick={handleLogout}>
-            Logout
-          </button>
+          <div className="wrapper-home__header__user-info">
+            <img alt={`${user?.photoURL}`} src={`${user?.photoURL}`} />
+            <button
+              className="wrapper-home__header__btn"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          </div>
         ) : (
           <button
             className="wrapper-home__header__btn"
