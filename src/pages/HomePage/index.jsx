@@ -3,7 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../context/authContext";
 
 const HomePage = () => {
-  const { user, handleLogout } = useAuthContext();
+  const { user, handleLogout, acctoken } = useAuthContext();
+  // console.log("userFacebookAccount", user);
+  // console.log("accessTokenFacebookAccount", acctoken);
+
   const navigate = useNavigate();
   return (
     <div className="wrapper-home">

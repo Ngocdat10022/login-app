@@ -5,10 +5,7 @@ import { useAuthContext } from "../../context/authContext";
 const LoginPage = () => {
   const { handleSignWithGoogle, user, handleSignWithFacebook } =
     useAuthContext();
-  // const siginWithGoogle = () => {
-  //   try {
-  //   } catch (error) {}
-  // };
+  console.log("user", user);
   const navigate = useNavigate();
   useEffect(() => {
     if (Boolean(user?.displayName)) navigate("/");
@@ -47,14 +44,14 @@ const LoginPage = () => {
             onClick={handleSignWithGoogle}
           >
             Login with google
-          </div>{" "}
+          </div>
           <span>or</span>
           <div
             className="form__btn__shared form__btn__shared--facebook"
             onClick={handleSignWithFacebook}
           >
             Login with facebook
-          </div>{" "}
+          </div>
         </div>
       </form>
     </div>

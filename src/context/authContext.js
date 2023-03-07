@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import {
   GoogleAuthProvider,
   signInWithPopup,
+  signInWithRedirect,
   signOut,
   onAuthStateChanged,
   FacebookAuthProvider,
@@ -11,11 +12,18 @@ export const authContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
-  console.log("user", user);
+  const [acctoken, setAcctoken] = useState("");
   const handleSignWithGoogle = async () => {
     try {
       const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, provider);
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // console.log("userGoogleAccount", result?.user);
+      // console.log("accessTokenGoogleAccount", token);
+      const user = result.user;
+      setAcctoken(token);
+      setUser(user);
     } catch (error) {
       console.log("error", error);
     }
@@ -23,7 +31,13 @@ const AuthContextProvider = ({ children }) => {
   const handleSignWithFacebook = async () => {
     try {
       const provider = new FacebookAuthProvider();
-      await signInWithPopup(auth, provider);
+      const result = await signInWithRedirect(auth, provider);
+      const credential = FacebookAuthProvider.credentialFromResult(result);
+      const accessToken = credential.accessToken;
+      setUser(result?.user);
+      setAcctoken(accessToken);
+      // console.log("userFacebookAccount", result?.user);
+      // console.log("accessTokenFacebookAccount", accessToken);
     } catch (error) {
       console.log("error", error);
     }
@@ -52,6 +66,7 @@ const AuthContextProvider = ({ children }) => {
         user,
         handleLogout,
         handleSignWithFacebook,
+        acctoken,
       }}
     >
       {children}
